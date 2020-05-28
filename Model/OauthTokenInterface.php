@@ -11,10 +11,12 @@
 
 namespace Klipper\Component\SecurityOauth\Model;
 
+use Klipper\Contracts\Model\ExpirableInterface;
+
 /**
  * @author François Pluchino <francois.pluchino@klipper.dev>
  */
-interface OauthTokenInterface
+interface OauthTokenInterface extends ExpirableInterface
 {
     /**
      * @return static
@@ -22,11 +24,4 @@ interface OauthTokenInterface
     public function setToken(?string $token);
 
     public function getToken(): ?string;
-
-    /**
-     * @return static
-     */
-    public function setExpiresAt(?\DateTimeInterface $expiresAt);
-
-    public function getExpiresAt(): ?\DateTimeInterface;
 }
